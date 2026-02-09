@@ -1,0 +1,348 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Button } from '@/components/starwind/starwind/button';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/starwind/starwind/card';
+import { Badge } from '@/components/starwind/starwind/badge';
+import { Separator } from '@/components/starwind/starwind/separator';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/starwind/starwind/accordion';
+---
+
+<Layout
+  title="Domain Echo - Anonymous Real-Time Chat for Every Website | Free Chrome Extension"
+  description="Turn every website into a chat room with Domain Echo. Anonymous, real-time conversations on any domain. 100% free Chrome extension. No signup, no tracking, just chat."
+  keywords="anonymous chat extension, real-time website chat, domain chat rooms, chrome chat extension, privacy chat, free browser extension, social browsing, website community chat"
+  ogType="website"
+  canonicalUrl="/"
+>
+  <!-- Hero Section - Brutalist/Unique Design -->
+  <section class="relative py-32 overflow-hidden" aria-label="Hero section">
+    <!-- Chaotic background elements -->
+    <div class="absolute inset-0 bg-slate-950">
+      <div class="absolute top-20 left-10 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <!-- Offset badge with rotation -->
+      <div class="mb-8 flex justify-start ml-4 md:ml-20">
+        <Badge variant="primary" size="lg" class="rotate-[-2deg] shadow-lg">
+          ✨ Free & Open Source
+        </Badge>
+      </div>
+
+      <!-- Asymmetric title layout -->
+      <div class="max-w-5xl">
+        <h1 class="text-6xl md:text-8xl font-black mb-8 leading-none">
+          <span class="block text-white">Chat with</span>
+          <span class="block text-indigo-400 ml-8 md:ml-20 italic">anyone,</span>
+          <span class="block text-white ml-4 md:ml-12">anywhere</span>
+          <span class="block text-purple-400 ml-16 md:ml-32 underline decoration-wavy decoration-indigo-500">on the web</span>
+        </h1>
+
+        <div class="ml-4 md:ml-16 max-w-xl border-l-4 border-indigo-500 pl-6 mb-12">
+          <p class="text-xl text-slate-300 font-mono">
+            > Every website is a chat room waiting to happen.<br/>
+            > No login. No tracking. Just vibes.
+          </p>
+        </div>
+
+        <!-- Stacked buttons with offset -->
+        <div class="flex flex-col gap-4 items-start ml-4 md:ml-24">
+          <Button variant="primary" size="lg" as="a" href="#install" class="shadow-[8px_8px_0px_0px_rgba(99,102,241,0.3)] hover:shadow-[4px_4px_0px_0px_rgba(99,102,241,0.3)] transition-all">
+            → Get Domain Echo Free
+          </Button>
+          <Button variant="outline" size="lg" as="a" href="#how-it-works" class="ml-8 border-2">
+            See How It Works ↓
+          </Button>
+        </div>
+      </div>
+
+      <!-- Scattered badges -->
+      <div class="mt-16 flex flex-wrap gap-6 ml-4 md:ml-32">
+        <Badge variant="ghost" class="rotate-[3deg] text-lg">✨ 100% Anonymous</Badge>
+        <Badge variant="ghost" class="rotate-[-2deg] text-lg">⚡ Real-time</Badge>
+        <Badge variant="ghost" class="rotate-[1deg] text-lg">🔒 Secure</Badge>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section - Bento Grid Style -->
+  <section class="py-32 bg-slate-900 relative" id="features">
+    <div class="container mx-auto px-4">
+      <!-- Tilted heading -->
+      <div class="mb-20">
+        <h2 class="text-5xl md:text-7xl font-black mb-4">
+          <span class="block text-slate-400 text-2xl font-mono mb-2">// features</span>
+          <span class="block">Why Domain Echo?</span>
+        </h2>
+        <div class="w-32 h-1 bg-indigo-500 ml-2"></div>
+      </div>
+
+      <!-- Asymmetric Bento Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-6">
+        <!-- Large feature - spans 2x2 -->
+        <Card class="md:col-span-3 md:row-span-2 bg-gradient-to-br from-indigo-950 to-slate-900 border-indigo-500/50 hover:border-indigo-400 transition-all hover:scale-[1.02] hover:rotate-[-0.5deg]">
+          <CardHeader class="h-full flex flex-col justify-between p-8">
+            <div>
+              <div class="text-7xl mb-6">🎭</div>
+              <CardTitle class="text-3xl mb-4">100% Anonymous</CardTitle>
+              <CardDescription class="text-lg">
+                Chat without revealing your identity. Get a fun random username like "CosmicPikachu777" or "SpicyRamen333". No emails, no phone numbers, no BS.
+              </CardDescription>
+            </div>
+            <div class="mt-6 font-mono text-indigo-400 text-sm">
+              → username: TurboToaster{Math.floor(Math.random() * 999)}
+            </div>
+          </CardHeader>
+        </Card>
+
+        <!-- Tall feature -->
+        <Card class="md:col-span-3 bg-slate-950 border-purple-500/30 hover:border-purple-400 transition-all hover:translate-y-[-4px]">
+          <CardHeader class="p-8">
+            <div class="text-6xl mb-4">⚡</div>
+            <CardTitle class="text-2xl mb-3">Real-time Sync</CardTitle>
+            <CardDescription>
+              Messages appear instantly. See who's online right now. Experience true real-time conversations powered by WebSockets.
+            </CardDescription>
+          </CardHeader>
+        </Card>
+
+        <!-- Wide feature -->
+        <Card class="md:col-span-3 bg-slate-950 border-cyan-500/30 hover:border-cyan-400 transition-all hover:translate-x-[4px]">
+          <CardHeader class="p-8">
+            <div class="text-6xl mb-4">🌐</div>
+            <CardTitle class="text-2xl mb-3">Every Domain</CardTitle>
+            <CardDescription>
+              Every website gets its own chat room. Discuss what you're reading with others on the same page. reddit.com? Chat. youtube.com? Chat. Your blog? Chat.
+            </CardDescription>
+          </CardHeader>
+        </Card>
+
+        <!-- Small features in a row -->
+        <Card class="md:col-span-2 bg-gradient-to-br from-slate-950 to-slate-900 border-green-500/30 hover:border-green-400 transition-all hover:rotate-[1deg]">
+          <CardHeader class="p-6">
+            <div class="text-5xl mb-3">🔒</div>
+            <CardTitle class="text-xl mb-2">Privacy First</CardTitle>
+            <CardDescription class="text-sm">
+              No tracking, no data collection. Ephemeral & secure.
+            </CardDescription>
+          </CardHeader>
+        </Card>
+
+        <Card class="md:col-span-2 bg-gradient-to-br from-slate-950 to-slate-900 border-yellow-500/30 hover:border-yellow-400 transition-all hover:rotate-[-1deg]">
+          <CardHeader class="p-6">
+            <div class="text-5xl mb-3">🚀</div>
+            <CardTitle class="text-xl mb-2">Lightweight</CardTitle>
+            <CardDescription class="text-sm">
+              Minimal footprint. Won't slow down your browsing.
+            </CardDescription>
+          </CardHeader>
+        </Card>
+
+        <Card class="md:col-span-2 bg-gradient-to-br from-slate-950 to-slate-900 border-pink-500/30 hover:border-pink-400 transition-all hover:scale-[1.05]">
+          <CardHeader class="p-6">
+            <div class="text-5xl mb-3">🎨</div>
+            <CardTitle class="text-xl mb-2">Beautiful UI</CardTitle>
+            <CardDescription class="text-sm">
+              Clean, modern design. Dark mode ready.
+            </CardDescription>
+          </CardHeader>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section - Diagonal Flow -->
+  <section class="py-32 bg-slate-950 relative overflow-hidden" id="how-it-works">
+    <!-- Diagonal background stripe -->
+    <div class="absolute inset-0 bg-gradient-to-br from-indigo-950/20 to-transparent transform -skew-y-3"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="mb-16 text-right">
+        <h2 class="text-5xl md:text-7xl font-black">
+          <span class="block text-slate-400 text-2xl font-mono mb-2">// process</span>
+          <span class="block">How It Works</span>
+        </h2>
+        <div class="w-32 h-1 bg-purple-500 ml-auto mr-2"></div>
+      </div>
+
+      <!-- Diagonal stepped layout -->
+      <div class="max-w-5xl mx-auto space-y-8">
+        <!-- Step 1 - Left aligned -->
+        <div class="flex items-start gap-6 md:ml-0">
+          <div class="flex-shrink-0 w-20 h-20 bg-indigo-600 border-4 border-indigo-400 flex items-center justify-center text-3xl font-black transform rotate-[-5deg] shadow-lg">
+            1
+          </div>
+          <div class="flex-1 bg-slate-900 border-l-4 border-indigo-500 p-6 transform hover:translate-x-2 transition-transform">
+            <h3 class="text-2xl font-bold mb-2">Install Extension</h3>
+            <p class="text-slate-400 font-mono text-sm">
+              $ chrome.install("domain-echo")<br/>
+              → No signup. No BS. One click.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 - Center aligned -->
+        <div class="flex items-start gap-6 md:ml-20">
+          <div class="flex-shrink-0 w-20 h-20 bg-purple-600 border-4 border-purple-400 flex items-center justify-center text-3xl font-black transform rotate-[3deg] shadow-lg">
+            2
+          </div>
+          <div class="flex-1 bg-slate-900 border-l-4 border-purple-500 p-6 transform hover:translate-x-2 transition-transform">
+            <h3 class="text-2xl font-bold mb-2">Visit Any Website</h3>
+            <p class="text-slate-400 font-mono text-sm">
+              → Browse normally<br/>
+              → Click the icon when you want to chat<br/>
+              → That's it
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 - Right aligned -->
+        <div class="flex items-start gap-6 md:ml-40">
+          <div class="flex-shrink-0 w-20 h-20 bg-pink-600 border-4 border-pink-400 flex items-center justify-center text-3xl font-black transform rotate-[-3deg] shadow-lg">
+            3
+          </div>
+          <div class="flex-1 bg-slate-900 border-l-4 border-pink-500 p-6 transform hover:translate-x-2 transition-transform">
+            <h3 class="text-2xl font-bold mb-2">Start Chatting</h3>
+            <p class="text-slate-400 font-mono text-sm">
+              → See who's online<br/>
+              → Send messages instantly<br/>
+              → Make connections ✨
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Install Section - Bold CTA -->
+  <section class="py-32 bg-slate-900 relative overflow-hidden" id="install">
+    <!-- Chaotic background -->
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_50%,rgba(99,102,241,0.1),transparent_50%)]"></div>
+      <div class="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_50%,rgba(168,85,247,0.1),transparent_50%)]"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto">
+        <!-- Brutalist heading -->
+        <div class="mb-12">
+          <h2 class="text-6xl md:text-8xl font-black leading-none mb-6">
+            <span class="block text-white">READY</span>
+            <span class="block text-indigo-400 ml-8 md:ml-16">TO</span>
+            <span class="block text-purple-400 ml-16 md:ml-32">JOIN?</span>
+          </h2>
+          <div class="flex items-center gap-4 ml-4">
+            <div class="w-16 h-1 bg-indigo-500"></div>
+            <p class="text-xl text-slate-400 font-mono">
+              No signup. No credit card. No bullshit.
+            </p>
+          </div>
+        </div>
+
+        <!-- Large CTA button -->
+        <div class="flex flex-col md:flex-row items-start gap-6 ml-4 md:ml-20">
+          <Button
+            variant="primary"
+            size="lg"
+            as="a"
+            href="#"
+            class="text-2xl px-12 py-8 shadow-[12px_12px_0px_0px_rgba(99,102,241,0.4)] hover:shadow-[6px_6px_0px_0px_rgba(99,102,241,0.4)] hover:translate-x-[6px] hover:translate-y-[6px] transition-all border-4 border-indigo-400"
+          >
+            <span class="text-4xl mr-3">→</span>
+            Add to Chrome - It's Free
+          </Button>
+
+          <div class="flex flex-col gap-2 mt-4 md:mt-8">
+            <Badge variant="ghost" class="text-sm">✓ Chrome</Badge>
+            <Badge variant="ghost" class="text-sm">✓ Edge</Badge>
+            <Badge variant="ghost" class="text-sm">✓ Brave</Badge>
+          </div>
+        </div>
+
+        <!-- Stats or social proof -->
+        <div class="mt-16 ml-4 md:ml-32 flex flex-wrap gap-8 text-slate-400 font-mono text-sm">
+          <div>
+            <div class="text-3xl font-black text-indigo-400">100%</div>
+            <div>Free Forever</div>
+          </div>
+          <div>
+            <div class="text-3xl font-black text-purple-400">0</div>
+            <div>Data Collected</div>
+          </div>
+          <div>
+            <div class="text-3xl font-black text-pink-400">∞</div>
+            <div>Websites Supported</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section - Minimal & Clean -->
+  <section class="py-32 bg-slate-950">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <!-- Side heading -->
+        <div class="mb-16 flex items-start gap-8">
+          <div class="flex-shrink-0">
+            <h2 class="text-5xl md:text-7xl font-black writing-mode-vertical transform rotate-180 text-slate-700">
+              FAQ
+            </h2>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-4xl font-bold mb-4">Questions?</h3>
+            <p class="text-slate-400 font-mono">We got answers.</p>
+          </div>
+        </div>
+
+        <!-- Accordion with custom styling -->
+        <div class="ml-0 md:ml-20">
+          <Accordion defaultValue="item-1" class="space-y-4">
+            <AccordionItem value="item-1" class="border-l-4 border-indigo-500 pl-6 bg-slate-900/50 hover:bg-slate-900 transition-colors">
+              <AccordionTrigger class="text-xl font-bold">
+                → Is it really anonymous?
+              </AccordionTrigger>
+              <AccordionContent class="text-slate-400 font-mono text-sm pt-4">
+                Yes! You get a random username and we don't track or store any personal information. Your conversations are ephemeral and secure.<br/><br/>
+                <span class="text-indigo-400">→ No emails. No phone numbers. No tracking pixels.</span>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2" class="border-l-4 border-purple-500 pl-6 bg-slate-900/50 hover:bg-slate-900 transition-colors">
+              <AccordionTrigger class="text-xl font-bold">
+                → How much does it cost?
+              </AccordionTrigger>
+              <AccordionContent class="text-slate-400 font-mono text-sm pt-4">
+                Domain Echo is completely free. No premium tiers, no hidden costs. We believe in keeping the internet open and accessible.<br/><br/>
+                <span class="text-purple-400">→ $0 forever. We mean it.</span>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3" class="border-l-4 border-pink-500 pl-6 bg-slate-900/50 hover:bg-slate-900 transition-colors">
+              <AccordionTrigger class="text-xl font-bold">
+                → Which browsers are supported?
+              </AccordionTrigger>
+              <AccordionContent class="text-slate-400 font-mono text-sm pt-4">
+                Chrome, Edge, Brave, and any Chromium-based browser. We're working on Firefox support!<br/><br/>
+                <span class="text-pink-400">→ If it runs Chromium, it runs Domain Echo.</span>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4" class="border-l-4 border-cyan-500 pl-6 bg-slate-900/50 hover:bg-slate-900 transition-colors">
+              <AccordionTrigger class="text-xl font-bold">
+                → Can I change my username?
+              </AccordionTrigger>
+              <AccordionContent class="text-slate-400 font-mono text-sm pt-4">
+                Your username is randomly generated and persists across sessions. You can reset it in the extension settings to get a new fun username.<br/><br/>
+                <span class="text-cyan-400">→ Don't like "SpicyToaster777"? Roll the dice again.</span>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
