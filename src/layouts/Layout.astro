@@ -8,15 +8,17 @@ interface Props {
   ogImage?: string;
   ogType?: string;
   canonicalUrl?: string;
+  faqSchema?: any;
 }
 
 const {
   title,
   description = "Anonymous, real-time chat rooms for every website you visit. Turn every domain into a community with Domain Echo - free Chrome extension.",
   keywords = "chrome extension, anonymous chat, real-time chat, domain chat, website chat, privacy chat, free chat extension, browser extension, social browsing",
-  ogImage = "/logo.jpg",
+  ogImage = "/logo.webp",
   ogType = "website",
-  canonicalUrl = Astro.url.pathname
+  canonicalUrl = Astro.url.pathname,
+  faqSchema
 } = Astro.props;
 
 const siteUrl = Astro.site || "https://domainecho.com";
@@ -47,67 +49,120 @@ const fullOgImage = new URL(ogImage, siteUrl).href;
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/logo.png" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content={ogType} />
-    <meta property="og:url" content={fullCanonicalUrl} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={fullOgImage} />
-    <meta property="og:site_name" content="Domain Echo" />
+     <!-- Open Graph / Facebook -->
+     <meta property="og:type" content={ogType} />
+     <meta property="og:url" content={fullCanonicalUrl} />
+     <meta property="og:title" content={title} />
+     <meta property="og:description" content={description} />
+     <meta property="og:image" content={fullOgImage} />
+     <meta property="og:image:type" content="image/webp" />
+     <meta property="og:image:width" content="512" />
+     <meta property="og:image:height" content="512" />
+     <meta property="og:site_name" content="Domain Echo" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={fullCanonicalUrl} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={fullOgImage} />
-    <meta name="twitter:creator" content="@ktappdev" />
-    <meta name="twitter:site" content="@ktappdev" />
+     <!-- Twitter -->
+     <meta property="twitter:card" content="summary_large_image" />
+     <meta property="twitter:url" content={fullCanonicalUrl} />
+     <meta property="twitter:title" content={title} />
+     <meta property="twitter:description" content={description} />
+     <meta property="twitter:image" content={fullOgImage} />
+     <meta name="twitter:creator" content="@ktappdev" />
+     <meta name="twitter:site" content="@ktappdev" />
 
-    <!-- Additional SEO -->
-    <meta name="theme-color" content="#4f46e5" />
-    <meta name="generator" content={Astro.generator} />
+     <!-- Additional SEO -->
+     <meta name="theme-color" content="#4f46e5" />
+     <meta name="generator" content={Astro.generator} />
 
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Domain Echo",
-      "applicationCategory": "BrowserExtension",
-      "operatingSystem": "Chrome, Edge, Brave",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "ratingCount": "1"
-      },
-      "description": description,
-      "image": fullOgImage,
-      "url": fullCanonicalUrl
-    })} />
+     <!-- Google Analytics (GA4) - Replace G-XXXXXXXXXX with your measurement ID -->
+     <!--
+     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+     <script>
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+       gtag('config', 'G-XXXXXXXXXX');
+     </script>
+     -->
+
+     <!-- Schema.org JSON-LD -->
+     <script type="application/ld+json" set:html={JSON.stringify([
+       {
+         "@context": "https://schema.org",
+         "@type": "SoftwareApplication",
+         "name": "Domain Echo",
+         "applicationCategory": "BrowserExtension",
+         "operatingSystem": "Chrome, Edge, Brave",
+         "offers": {
+           "@type": "Offer",
+           "price": "0",
+           "priceCurrency": "USD"
+         },
+         "aggregateRating": {
+           "@type": "AggregateRating",
+           "ratingValue": "5",
+           "ratingCount": "1"
+         },
+         "description": description,
+         "image": fullOgImage,
+         "url": fullCanonicalUrl
+       },
+       {
+         "@context": "https://schema.org",
+         "@type": "WebSite",
+         "name": "Domain Echo",
+         "url": siteUrl,
+         "description": "Anonymous, real-time chat rooms for every website you visit",
+         "publisher": {
+           "@type": "Organization",
+           "name": "Domain Echo",
+           "logo": {
+             "@type": "ImageObject",
+             "url": new URL("/logo.webp", siteUrl).href,
+             "width": 512,
+             "height": 512
+           }
+         }
+       },
+       {
+         "@context": "https://schema.org",
+         "@type": "Organization",
+         "name": "Domain Echo",
+         "url": siteUrl,
+         "logo": {
+           "@type": "ImageObject",
+           "url": new URL("/logo.webp", siteUrl).href,
+           "width": 512,
+           "height": 512
+         },
+         "sameAs": [
+           "https://github.com/ktappdev/domain-echo",
+           "https://twitter.com/ktappdev"
+         ]
+       },
+       ...(faqSchema ? [faqSchema] : [])
+     ])} />
   </head>
   <body class="bg-slate-950 text-slate-100">
     <!-- Navigation -->
     <nav class="border-b border-slate-800 sticky top-0 bg-slate-950/95 backdrop-blur-sm z-50">
       <div class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
-          <a href="/" class="flex items-center gap-3 text-xl font-bold hover:opacity-80 transition">
-            <img src="/logo.png" alt="Domain Echo Logo" class="w-10 h-10 rounded-lg" />
-            <span>Domain Echo</span>
-          </a>
-          <div class="flex gap-6 items-center">
-            <a href="/" class="hover:text-indigo-400 transition">Home</a>
-            <a href="/about" class="hover:text-indigo-400 transition">About</a>
-            <a href="/privacy" class="hover:text-indigo-400 transition">Privacy</a>
-            <a href="/terms" class="hover:text-indigo-400 transition">Terms</a>
-            <a href="#install" class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg transition font-semibold">
-              Install
-            </a>
-          </div>
+           <a href="/" class="flex items-center gap-3 text-xl font-bold hover:opacity-80 transition">
+             <picture>
+               <source srcset="/logo.webp" type="image/webp">
+               <img src="/logo.png" alt="Domain Echo Logo" class="w-10 h-10 rounded-lg" width="40" height="40" loading="lazy" />
+             </picture>
+             <span>Domain Echo</span>
+           </a>
+           <div class="flex gap-6 items-center">
+             <a href="/" class="hover:text-indigo-400 transition" aria-label="Go to homepage">Home</a>
+             <a href="/about" class="hover:text-indigo-400 transition" aria-label="Learn about Domain Echo">About</a>
+             <a href="/privacy" class="hover:text-indigo-400 transition" aria-label="View privacy policy">Privacy</a>
+             <a href="/terms" class="hover:text-indigo-400 transition" aria-label="View terms of service">Terms</a>
+             <a href="https://chromewebstore.google.com/detail/pednobpcbjiilgnpflbnbhifffgkjplf" class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg transition font-semibold" target="_blank" rel="noopener noreferrer" aria-label="Install Domain Echo Chrome extension">
+               Install
+             </a>
+           </div>
         </div>
       </div>
     </nav>
@@ -122,10 +177,13 @@ const fullOgImage = new URL(ogImage, siteUrl).href;
       <div class="container mx-auto px-4 py-12">
         <div class="grid md:grid-cols-4 gap-8">
           <div>
-            <div class="flex items-center gap-3 text-xl font-bold mb-4">
-              <img src="/logo.png" alt="Domain Echo Logo" class="w-10 h-10 rounded-lg" />
-              <span>Domain Echo</span>
-            </div>
+           <div class="flex items-center gap-3 text-xl font-bold mb-4">
+             <picture>
+               <source srcset="/logo.webp" type="image/webp">
+               <img src="/logo.png" alt="Domain Echo Logo" class="w-10 h-10 rounded-lg" width="40" height="40" loading="lazy" />
+             </picture>
+             <span>Domain Echo</span>
+           </div>
             <p class="text-slate-400 text-sm">
               Chat with anyone, anywhere on the web. Anonymous, real-time conversations for every domain.
             </p>
@@ -135,7 +193,7 @@ const fullOgImage = new URL(ogImage, siteUrl).href;
             <ul class="space-y-2 text-slate-400 text-sm">
               <li><a href="/" class="hover:text-indigo-400 transition">Home</a></li>
               <li><a href="/about" class="hover:text-indigo-400 transition">About</a></li>
-              <li><a href="#install" class="hover:text-indigo-400 transition">Install</a></li>
+              <li><a href="https://chromewebstore.google.com/detail/pednobpcbjiilgnpflbnbhifffgkjplf" class="hover:text-indigo-400 transition" target="_blank" rel="noopener noreferrer">Install</a></li>
             </ul>
           </div>
           <div>

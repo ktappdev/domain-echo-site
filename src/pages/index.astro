@@ -5,6 +5,45 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Badge } from '@/components/starwind/starwind/badge';
 import { Separator } from '@/components/starwind/starwind/separator';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/starwind/starwind/accordion';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it really anonymous?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! You get a random username and we don't track or store any personal information. Your conversations are ephemeral and secure. No emails, no phone numbers, no tracking pixels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Domain Echo is completely free. No premium tiers, no hidden costs. We believe in keeping the internet open and accessible. $0 forever."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which browsers are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chrome, Edge, Brave, and any Chromium-based browser. We're working on Firefox support! If it runs Chromium, it runs Domain Echo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I change my username?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your username is randomly generated and persists across sessions. You can reset it in the extension settings to get a new fun username. Don't like your current username? Roll the dice again."
+      }
+    }
+  ]
+};
 ---
 
 <Layout
@@ -13,6 +52,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/
   keywords="anonymous chat extension, real-time website chat, domain chat rooms, chrome chat extension, privacy chat, free browser extension, social browsing, website community chat"
   ogType="website"
   canonicalUrl="/"
+  faqSchema={faqSchema}
 >
   <!-- Hero Section - Brutalist/Unique Design -->
   <section class="relative py-32 overflow-hidden" aria-label="Hero section">
@@ -31,14 +71,14 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/
         </Badge>
       </div>
 
-      <!-- Asymmetric title layout -->
-      <div class="max-w-5xl">
-        <h1 class="text-6xl md:text-8xl font-black mb-8 leading-none">
-          <span class="block text-white">Chat with</span>
-          <span class="block text-indigo-400 ml-8 md:ml-20 italic">anyone,</span>
-          <span class="block text-white ml-4 md:ml-12">anywhere</span>
-          <span class="block text-purple-400 ml-16 md:ml-32 underline decoration-wavy decoration-indigo-500">on the web</span>
-        </h1>
+       <!-- Asymmetric title layout -->
+       <div class="max-w-5xl">
+         <div class="text-6xl md:text-8xl font-black mb-8 leading-none">
+           <span class="block text-white">Chat with</span>
+           <span class="block text-indigo-400 ml-8 md:ml-20 italic">anyone,</span>
+           <span class="block text-white ml-4 md:ml-12">anywhere</span>
+           <span class="block text-purple-400 ml-16 md:ml-32 underline decoration-wavy decoration-indigo-500">on the web</span>
+         </div>
 
         <div class="ml-4 md:ml-16 max-w-xl border-l-4 border-indigo-500 pl-6 mb-12">
           <p class="text-xl text-slate-300 font-mono">
@@ -49,12 +89,12 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/
 
         <!-- Stacked buttons with offset -->
         <div class="flex flex-col gap-4 items-start ml-4 md:ml-24">
-          <Button variant="primary" size="lg" as="a" href="#install" class="shadow-[8px_8px_0px_0px_rgba(99,102,241,0.3)] hover:shadow-[4px_4px_0px_0px_rgba(99,102,241,0.3)] transition-all">
-            → Get Domain Echo Free
-          </Button>
-          <Button variant="outline" size="lg" as="a" href="#how-it-works" class="ml-8 border-2">
-            See How It Works ↓
-          </Button>
+           <Button variant="primary" size="lg" href="#install" class="shadow-[8px_8px_0px_0px_rgba(99,102,241,0.3)] hover:shadow-[4px_4px_0px_0px_rgba(99,102,241,0.3)] transition-all" aria-label="Get Domain Echo Free - Scroll to install section">
+             → Get Domain Echo Free
+           </Button>
+           <Button variant="outline" size="lg" href="#how-it-works" class="ml-8 border-2" aria-label="See how Domain Echo works - Scroll to how it works section">
+             See How It Works ↓
+           </Button>
         </div>
       </div>
 
@@ -70,14 +110,14 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/
   <!-- Features Section - Bento Grid Style -->
   <section class="py-32 bg-slate-900 relative" id="features">
     <div class="container mx-auto px-4">
-      <!-- Tilted heading -->
-      <div class="mb-20">
-        <h2 class="text-5xl md:text-7xl font-black mb-4">
-          <span class="block text-slate-400 text-2xl font-mono mb-2">// features</span>
-          <span class="block">Why Domain Echo?</span>
-        </h2>
-        <div class="w-32 h-1 bg-indigo-500 ml-2"></div>
-      </div>
+       <!-- Tilted heading -->
+       <div class="mb-20">
+         <h1 class="text-5xl md:text-7xl font-black mb-4">
+           <span class="block text-slate-400 text-2xl font-mono mb-2">// features</span>
+           <span class="block">Why Domain Echo?</span>
+         </h1>
+         <div class="w-32 h-1 bg-indigo-500 ml-2"></div>
+       </div>
 
       <!-- Asymmetric Bento Grid -->
       <div class="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-6">
@@ -243,12 +283,12 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/
 
         <!-- Large CTA button -->
         <div class="flex flex-col md:flex-row items-start gap-6 ml-4 md:ml-20">
-          <Button
+           <Button
             variant="primary"
             size="lg"
-            as="a"
             href="https://chromewebstore.google.com/detail/pednobpcbjiilgnpflbnbhifffgkjplf"
             class="text-2xl px-12 py-8 shadow-[12px_12px_0px_0px_rgba(99,102,241,0.4)] hover:shadow-[6px_6px_0px_0px_rgba(99,102,241,0.4)] hover:translate-x-[6px] hover:translate-y-[6px] transition-all border-4 border-indigo-400"
+            aria-label="Add Domain Echo to Chrome - Free anonymous chat extension"
           >
             <span class="text-4xl mr-3">→</span>
             Add to Chrome - It's Free
